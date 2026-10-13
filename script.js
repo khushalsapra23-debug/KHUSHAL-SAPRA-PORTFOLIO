@@ -1,26 +1,41 @@
 
 const menuToggle = document.getElementById("menu-toggle");
-const nav = document.getElementById("nav");
+const navLinks = document.getElementById("nav-links");
 
-if (menuToggle && nav) {
+// Open and close the mobile navigation menu.
+if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
+    const isOpen = navLinks.classList.toggle("active");
+
     menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.textContent = isOpen ? "✕" : "☰";
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
   });
 
-  nav.querySelectorAll("a").forEach((link) => {
+  // Close the menu after a navigation link is selected.
+  navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      nav.classList.remove("open");
+      navLinks.classList.remove("active");
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
     });
+  });
+
+  // Reset the mobile menu when returning to desktop width.
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) {
+      navLinks.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
   });
 }
 
+// Automatically show the current year in the footer.
 const yearElement = document.getElementById("year");
 
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
-                                    }
-
+}
