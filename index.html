@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Khushal Sapra's portfolio — B.Tech CSE student at Guru Tegh Bahadur Institute of Technology, aspiring software developer and AI intern.">
   <meta name="author" content="Khushal Sapra">
+  <meta name="theme-color" content="#080d19">
+  <meta property="og:title" content="Khushal Sapra | Portfolio">
+  <meta property="og:description" content="B.Tech CSE student, aspiring software developer and AI intern.">
+  <meta property="og:type" content="website">
   <title>Khushal Sapra | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    // Apply saved theme before paint to avoid a flash.
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    } catch (e) {}
+  </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <header class="header">
-    <div class="container nav-container">
-      <a href="#home" class="logo">KS</a>
+    <div class="nav-container">
+      <a href="#home" class="logo" aria-label="Khushal Sapra, home">KS</a>
 
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        ☰
-      </button>
-
-      <nav class="nav" id="nav-menu">
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#education">Education</a>
@@ -27,232 +41,244 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
+          <span class="theme-icon" aria-hidden="true">☀</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero section" id="home">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-          <h1>Hi, I'm <span>Khushal Sapra</span></h1>
-          <h2>B.Tech CSE Student | Aspiring Software Developer</h2>
-          <p>
-            I'm a computer science student interested in software development,
-            technology, and artificial intelligence. I'm continuously learning,
-            building my skills, and exploring new opportunities.
-          </p>
+  <main id="main">
+    <!-- HERO -->
+    <section class="section-container hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">Welcome to my portfolio</p>
+        <h1>Hi, I'm <span>Khushal Sapra</span></h1>
+        <h2>B.Tech CSE Student | Aspiring Software Developer</h2>
+        <p class="hero-description">
+          I'm a computer science student interested in software development,
+          technology, and artificial intelligence. I'm continuously learning,
+          building my skills, and exploring new opportunities.
+        </p>
 
-          <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">Explore My Work</a>
-            <a href="Khushal-Sapra-Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Resume ↗</a>
-          </div>
-
-          <div class="social-links">
-            <a href="https://github.com/khushalsapra23-debug" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a href="https://linkedin.com/in/sapra-khushal" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          </div>
+        <div class="hero-buttons">
+          <a href="#projects" class="button button-primary">Explore my work</a>
+          <a href="Khushal-Sapra-Resume.pdf" class="button button-secondary" target="_blank" rel="noopener noreferrer">View resume ↗</a>
         </div>
 
-        <div class="hero-image">
-          <img src="assets/portfolio.jpg" alt="Khushal Sapra portfolio portrait">
+        <div class="social-links">
+          <a href="https://github.com/khushalsapra23-debug" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://linkedin.com/in/sapra-khushal" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="photo-frame">
+          <img class="profile-photo" src="assets/portfolio.jpg" alt="Portrait of Khushal Sapra" width="340" height="400" fetchpriority="high">
+        </div>
+        <p class="photo-caption"><span class="status-dot" aria-hidden="true"></span> Currently interning as an AI Intern</p>
       </div>
     </section>
 
-    <section class="section" id="about">
-      <div class="container">
-        <p class="eyebrow">GET TO KNOW ME</p>
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <p>
-            I'm a B.Tech Computer Science and Engineering student at Guru Tegh
-            Bahadur Institute of Technology, currently building my foundation
-            in technology and professional skills.
-          </p>
-          <p>
-            Through internships, academic projects, and self-learning, I'm
-            working to improve my problem-solving, communication, teamwork,
-            and technical abilities. I'm eager to gain practical experience
-            and contribute to meaningful projects.
-          </p>
-        </div>
+    <!-- ABOUT -->
+    <section class="section section-container reveal" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">Get to know me</p>
+        <h2>About me</h2>
+      </div>
+      <div class="about-card">
+        <p>
+          I'm a B.Tech Computer Science and Engineering student at Guru Tegh
+          Bahadur Institute of Technology, currently building my foundation
+          in technology and professional skills.
+        </p>
+        <p>
+          Through internships, academic projects, and self-learning, I'm
+          working to improve my problem-solving, communication, teamwork,
+          and technical abilities. I'm eager to gain practical experience
+          and contribute to meaningful projects.
+        </p>
       </div>
     </section>
 
-    <section class="section section-alt" id="education">
-      <div class="container">
-        <p class="eyebrow">MY ACADEMIC BACKGROUND</p>
-        <h2 class="section-title">Education</h2>
+    <!-- EDUCATION -->
+    <section class="section section-container reveal" id="education">
+      <div class="section-heading">
+        <p class="eyebrow">My academic background</p>
+        <h2>Education</h2>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <p class="card-label">2025 – 2029</p>
+          <h3>B.Tech — Computer Science and Engineering</h3>
+          <p class="card-subtitle">Guru Tegh Bahadur Institute of Technology</p>
+          <p><strong>Current CGPA:</strong> 7.41</p>
+        </article>
 
-        <div class="card-grid">
-          <article class="card">
-            <p class="card-date">2025–2029</p>
-            <h3>B.Tech — Computer Science and Engineering</h3>
-            <p>Guru Tegh Bahadur Institute of Technology</p>
-            <p><strong>Current CGPA:</strong> 7.41</p>
-          </article>
+        <article class="card">
+          <p class="card-label">2025</p>
+          <h3>Class XII — CBSE</h3>
+          <p class="card-subtitle">GBSSS No. 1, Punjabi Bagh, New Delhi – 110026</p>
+          <p><strong>Percentage:</strong> 79.20%</p>
+        </article>
 
-          <article class="card">
-            <p class="card-date">2025</p>
-            <h3>Class XII — CBSE</h3>
-            <p>GBSSS No. 1, Punjabi Bagh, New Delhi – 110026</p>
-            <p><strong>Percentage:</strong> 79.20%</p>
-          </article>
-
-          <article class="card">
-            <p class="card-date">2023</p>
-            <h3>Class X — CBSE</h3>
-            <p>GBSSS No. 1, Punjabi Bagh, New Delhi – 110026</p>
-            <p><strong>Percentage:</strong> 86.80%</p>
-          </article>
-        </div>
+        <article class="card">
+          <p class="card-label">2023</p>
+          <h3>Class X — CBSE</h3>
+          <p class="card-subtitle">GBSSS No. 1, Punjabi Bagh, New Delhi – 110026</p>
+          <p><strong>Percentage:</strong> 86.80%</p>
+        </article>
       </div>
     </section>
 
-    <section class="section" id="experience">
-      <div class="container">
-        <p class="eyebrow">MY PROFESSIONAL JOURNEY</p>
-        <h2 class="section-title">Experience</h2>
-
-        <div class="card-grid">
-          <article class="card">
-            <p class="card-date">4 October 2026 – Present</p>
+    <!-- EXPERIENCE -->
+    <section class="section section-container reveal" id="experience">
+      <div class="section-heading">
+        <p class="eyebrow">My professional journey</p>
+        <h2>Experience</h2>
+      </div>
+      <ol class="timeline">
+        <li class="timeline-item">
+          <div class="card">
+            <p class="card-label">4 October 2026 – Present</p>
             <h3>AI Intern</h3>
-            <p class="company">InAmigos Foundation</p>
+            <p class="card-subtitle">InAmigos Foundation</p>
             <p>
               Exploring AI tools and applying them to practical problem-solving,
               awareness content, and assigned internship tasks.
             </p>
-          </article>
-
-          <article class="card">
-            <p class="card-date">22 September 2026 – 5 October 2026</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="card">
+            <p class="card-label">22 September 2026 – 5 October 2026</p>
             <h3>Web Development Intern</h3>
-            <p class="company">InAmigos Foundation</p>
+            <p class="card-subtitle">InAmigos Foundation</p>
             <p>
               Worked on website development and improvement tasks, including
               portfolio creation, website analysis, and user-focused design.
             </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="projects">
-      <div class="container">
-        <p class="eyebrow">WHAT I'VE WORKED ON</p>
-        <h2 class="section-title">Projects & Activities</h2>
-
-        <div class="card-grid">
-          <article class="card project-card">
-            <div class="project-number">01</div>
-            <h3>Trigonometry Working Model</h3>
-            <p>
-              Created an educational working model to demonstrate trigonometric
-              concepts in a visual and interactive way.
-            </p>
-            <span class="tag">Academic Project</span>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-number">02</div>
-            <h3>Stationary Solar System Model</h3>
-            <p>
-              Developed a school science model representing the solar system
-              and its planets.
-            </p>
-            <span class="tag">Science Project</span>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-number">03</div>
-            <h3>Eco-Friendly Pen Stand</h3>
-            <p>
-              Participated in a team project to create a pen stand using
-              eco-friendly materials and encourage reuse.
-            </p>
-            <span class="tag">Team Project</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <div class="container">
-        <p class="eyebrow">WHAT I BRING</p>
-        <h2 class="section-title">Skills</h2>
-
-        <div class="skills-content">
-          <div class="skill-group">
-            <h3>Professional Skills</h3>
-            <div class="tags">
-              <span class="tag">Communication</span>
-              <span class="tag">Problem-Solving</span>
-              <span class="tag">Teamwork</span>
-              <span class="tag">Team Leadership</span>
-              <span class="tag">Adaptability</span>
-              <span class="tag">Time Management</span>
-              <span class="tag">Quick Learning</span>
-              <span class="tag">Presentation Skills</span>
-              <span class="tag">Event Management</span>
-            </div>
           </div>
+        </li>
+      </ol>
+    </section>
 
-          <div class="skill-group">
-            <h3>Activities & Achievements</h3>
-            <div class="tags">
-              <span class="tag">NCC Cadet</span>
-              <span class="tag">Mental Maths — Zonal Level</span>
-              <span class="tag">Academic Model Making</span>
-              <span class="tag">AI Tools Exploration</span>
-              <span class="tag">Web Development</span>
-            </div>
+    <!-- PROJECTS -->
+    <section class="section section-container reveal" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">What I've worked on</p>
+        <h2>Projects and activities</h2>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Trigonometry Working Model</h3>
+          <p>
+            Created an educational working model to demonstrate trigonometric
+            concepts in a visual and interactive way.
+          </p>
+          <span class="tag">Academic project</span>
+        </article>
+
+        <article class="card">
+          <h3>Stationary Solar System Model</h3>
+          <p>
+            Developed a school science model representing the solar system
+            and its planets.
+          </p>
+          <span class="tag">Science project</span>
+        </article>
+
+        <article class="card">
+          <h3>Eco-Friendly Pen Stand</h3>
+          <p>
+            Participated in a team project to create a pen stand using
+            eco-friendly materials and encourage reuse.
+          </p>
+          <span class="tag">Team project</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-container reveal" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">What I bring</p>
+        <h2>Skills</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skills-panel">
+          <h3>Professional skills</h3>
+          <div class="skills-list">
+            <span>Communication</span>
+            <span>Problem-Solving</span>
+            <span>Teamwork</span>
+            <span>Team Leadership</span>
+            <span>Adaptability</span>
+            <span>Time Management</span>
+            <span>Quick Learning</span>
+            <span>Presentation Skills</span>
+            <span>Event Management</span>
+          </div>
+        </div>
+
+        <div class="skills-panel">
+          <h3>Activities and achievements</h3>
+          <div class="skills-list">
+            <span>NCC Cadet</span>
+            <span>Mental Maths — Zonal Level</span>
+            <span>Academic Model Making</span>
+            <span>AI Tools Exploration</span>
+            <span>Web Development</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="contact">
-      <div class="container">
-        <p class="eyebrow">LET'S CONNECT</p>
-        <h2 class="section-title">Contact Me</h2>
-        <p class="contact-intro">
+    <!-- CONTACT -->
+    <section class="section section-container contact-section reveal" id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Let's connect</p>
+        <h2>Contact me</h2>
+        <p class="section-intro">
           I'm open to learning opportunities, internships, collaborations,
           and connecting with people in technology.
         </p>
+      </div>
 
-        <div class="contact-links">
-          <a href="mailto:khushalsapra23@gmail.com" class="contact-link">
-            <span>Email</span>
-            <span>↗</span>
-          </a>
+      <div class="contact-card">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <a href="mailto:khushalsapra23@gmail.com" id="email-link">khushalsapra23@gmail.com</a>
+          <button class="copy-button" id="copy-email" type="button" data-email="khushalsapra23@gmail.com">Copy email</button>
+        </div>
 
-          <a href="https://linkedin.com/in/sapra-khushal" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span>LinkedIn</span>
-            <span>↗</span>
-          </a>
+        <div class="contact-item">
+          <span class="contact-label">LinkedIn</span>
+          <a href="https://linkedin.com/in/sapra-khushal" target="_blank" rel="noopener noreferrer">linkedin.com/in/sapra-khushal ↗</a>
+        </div>
 
-          <a href="https://github.com/khushalsapra23-debug" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span>GitHub</span>
-            <span>↗</span>
-          </a>
-
-          <a href="Khushal-Sapra-Resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <span>Resume</span>
-            <span>↗</span>
-          </a>
+        <div class="contact-item">
+          <span class="contact-label">GitHub</span>
+          <a href="https://github.com/khushalsapra23-debug" target="_blank" rel="noopener noreferrer">github.com/khushalsapra23-debug ↗</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p>© <span id="year"></span> Khushal Sapra. All rights reserved.</p>
-      <p>Designed and developed with a passion for learning.</p>
-    </div>
+    <a href="#home" class="footer-logo" aria-label="Back to top">KS</a>
+    <p>© <span id="year"></span> Khushal Sapra. All rights reserved.</p>
+    <p>Designed and developed with a passion for learning.</p>
   </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
