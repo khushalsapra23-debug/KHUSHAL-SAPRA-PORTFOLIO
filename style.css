@@ -690,7 +690,10 @@ img {
 }
 
 .contact-card .social-links {
+  width: 100%;
   margin-top: 0;
+  justify-content: space-evenly;
+  gap: 16px;
 }
 
 /* =========================
