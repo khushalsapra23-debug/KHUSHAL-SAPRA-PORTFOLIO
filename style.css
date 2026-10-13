@@ -690,10 +690,16 @@ img {
 }
 
 .contact-card .social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
   margin-top: 0;
-  justify-content: space-evenly;
-  gap: 16px;
+  gap: 24px 90px;
+}
+
+.contact-card .social-links a {
+  font-size: 15px;
 }
 
 /* =========================
@@ -788,6 +794,7 @@ img {
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
 }
 
 /* =========================
@@ -879,6 +886,10 @@ img {
 
   .contact-section {
     padding-bottom: 60px;
+  }
+
+  .contact-card .social-links {
+    gap: 18px 40px;
   }
 
   .back-to-top {
