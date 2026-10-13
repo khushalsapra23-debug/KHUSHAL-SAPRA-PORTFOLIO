@@ -682,52 +682,15 @@ img {
 }
 
 .contact-card {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  display: flex;
   padding: 28px;
   border: 1px solid var(--border);
   border-radius: 18px;
   background: var(--surface);
 }
 
-.contact-item {
-  min-width: 0;
-}
-
-.contact-label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.contact-item a {
-  color: var(--accent-light);
-  font-size: 14px;
-  overflow-wrap: anywhere;
-}
-
-.contact-item a:hover {
-  text-decoration: underline;
-}
-
-.copy-button {
-  display: block;
-  margin-top: 12px;
-  padding: 7px 14px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface-light);
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
-}
-
-.copy-button:hover {
-  border-color: var(--accent);
+.contact-card .social-links {
+  margin-top: 0;
 }
 
 /* =========================
@@ -786,29 +749,6 @@ img {
   background: var(--surface-light);
 }
 
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 28px;
-  z-index: 3000;
-  padding: 11px 18px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface-light);
-  box-shadow: var(--shadow);
-  font-size: 13px;
-  font-weight: 600;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, 12px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
-
 /* =========================
    SCROLL REVEAL
 ========================= */
@@ -844,10 +784,6 @@ img {
 
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .contact-card {
-    grid-template-columns: 1fr;
   }
 }
 
