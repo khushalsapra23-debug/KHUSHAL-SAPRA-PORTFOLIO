@@ -7,7 +7,6 @@ const navLinks = document.getElementById("nav-links");
 const themeToggle = document.getElementById("theme-toggle");
 const progressBar = document.getElementById("scroll-progress");
 const backToTop = document.getElementById("back-to-top");
-const toast = document.getElementById("toast");
 const MOBILE_BREAKPOINT = 760;
 
 /* =========================
@@ -188,50 +187,6 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => revealObserver.observe(item));
 } else {
   revealItems.forEach((item) => item.classList.add("in-view"));
-}
-
-/* =========================
-   COPY EMAIL
-========================= */
-
-let toastTimer;
-
-function showToast(message) {
-  if (!toast) return;
-  toast.textContent = message;
-  toast.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
-}
-
-const copyButton = document.getElementById("copy-email");
-
-if (copyButton) {
-  copyButton.addEventListener("click", async () => {
-    const email = copyButton.dataset.email;
-
-    try {
-      await navigator.clipboard.writeText(email);
-      showToast("Email copied");
-    } catch (error) {
-      // Fallback for browsers without clipboard access.
-      const helper = document.createElement("textarea");
-      helper.value = email;
-      helper.style.position = "fixed";
-      helper.style.opacity = "0";
-      document.body.appendChild(helper);
-      helper.select();
-
-      try {
-        document.execCommand("copy");
-        showToast("Email copied");
-      } catch (e) {
-        showToast("Copy failed. Select the email and copy it.");
-      }
-
-      document.body.removeChild(helper);
-    }
-  });
 }
 
 /* =========================
